@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">Home</ion-text>
+        </ion-text>
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar [(ngModel)]="searchKey" placeholder="Enter a city"></ion-searchbar>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-img src="../../../assets/img/road.jpg"></ion-img>
+      <ion-img class="car" src="../../../assets/img/car.png"></ion-img>
+      <ion-card-title>Welcome to this app</ion-card-title>
+      <ion-card-title>Giving you the transport you need</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="home-rent" color="primary" [routerLink]="['/rent']" routerLinkActive="router-link-active" >Rent a transport</ion-button>
+  <ion-button class="home-rent" color="tertiary" [routerLink]="['/sell']" routerLinkActive="router-link-active" >Sell a transport</ion-button>
+  <popmenu></popmenu>
+</ion-content>
+  

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="bg-profile">
+    <ion-avatar slot="start">
+      <img src="assets/img/avatar.jpeg" class="user-avatar">
+    </ion-avatar>
+    <ion-label>
+      <ion-text color="light">
+        <h2>
+          <strong>Stole Terziev</strong>
+        </h2>
+      </ion-text>
+      <ion-text color="tertiary">
+        <h3>
+          stole@gmail.com
+        </h3>
+      </ion-text>
+      <ion-button icon-left size="small" shape="round" color="dark" (click)="editProfile()">
+        <ion-icon name="contact"></ion-icon>
+      Edit
+      </ion-button>
+      <ion-button icon-left size="small" shape="round" color="secondary" (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+        logout
+      </ion-button>
+    </ion-label>
+  </ion-item>
+</ion-content>

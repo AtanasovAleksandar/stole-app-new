@@ -1,0 +1,28 @@
+:host {
+    ion-content {
+        --background: var(--ion-color-light);
+    }
+
+    ion-item {
+        border-radius: 0;
+        border-bottom: 1px dotted var(--ion-color-medium);
+    }
+
+    ion-card {
+        &.no-radius {
+            border-radius: 0;
+        }
+    }
+}
+
+.car {
+    position: absolute;
+    top: 85px;
+    width: 226px;
+    left: 20%;
+}
+
+.home-rent {
+    display: flex;
+    margin: 10px 0px;
+}
