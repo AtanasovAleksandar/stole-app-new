@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,7 @@ import { NavController, MenuController, ToastController, AlertController, Loadin
 })
 export class LoginPage implements OnInit {
   public onLoginForm: FormGroup;
+  registerUsers:any = [];
 
   constructor(
     public navCtrl: NavController,
@@ -16,7 +18,8 @@ export class LoginPage implements OnInit {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public LoginService: LoginService
   ) { }
 
   ionViewWillEnter() {
@@ -24,6 +27,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getUsers();
 
     this.onLoginForm = this.formBuilder.group({
       'email': [null, Validators.compose([
@@ -85,8 +89,23 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('/register');
   }
 
+  getUsers() {
+    this.LoginService.getUsers().subscribe(
+      data => {
+        this.registerUsers = data;
+        console.log(data);
+      }
+    )
+  }
+
   goToHome() {
-    this.navCtrl.navigateRoot('/home-results');
+    for (let i = 0; i < this.registerUsers.length; i++) {
+      if (this.registerUsers[i].email == this.onLoginForm.value.email &&
+        this.registerUsers[i].password === this.onLoginForm.value.password) {
+        console.log(this.onLoginForm.value);
+        this.navCtrl.navigateRoot('/home-results');
+      }
+    }
   }
 
 }

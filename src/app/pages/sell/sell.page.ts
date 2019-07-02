@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-sell',
@@ -10,7 +11,8 @@ export class SellPage implements OnInit {
   public onCarListForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private loginService: LoginService
   ) { }
 
   // ionViewWillEnter() {
@@ -19,7 +21,7 @@ export class SellPage implements OnInit {
 
   ngOnInit() {
     this.onCarListForm = this.formBuilder.group({
-      'carName': [null, Validators.compose([
+      'model': [null, Validators.compose([
         Validators.required
       ])],
       'location': [null, Validators.compose([
@@ -28,12 +30,22 @@ export class SellPage implements OnInit {
       'year': [null, Validators.compose([
         Validators.required
       ])],
-      'start-date': [null, Validators.compose([
+      'startDate': [null, Validators.compose([
         Validators.required
       ])],
-      'end-date': [null, Validators.compose([
+      'endDate': [null, Validators.compose([
+        Validators.required
+      ])],
+      'description': [null, Validators.compose([
         Validators.required
       ])]
     });
   }
+
+  onPublish() {
+    console.log(this.onCarListForm.value);
+    this.loginService.registerUser(this.onCarListForm.value).subscribe();
+  }
+
+
 }

@@ -20,9 +20,9 @@
       <ion-icon name="car" item-start></ion-icon>
      Car Model
     </ion-label>
-    <ion-input color="secondary" type="text" formControlName="carName"></ion-input>
+    <ion-input color="secondary" type="text" formControlName="model"></ion-input>
   </ion-item>
-  <p ion-text class="text08" *ngIf="onCarListForm.get('carName').touched && onCarListForm.get('carName').hasError('required')">
+  <p ion-text class="text08" *ngIf="onCarListForm.get('model').touched && onCarListForm.get('carName').hasError('required')">
     <ion-text color="warning">
       This field is required
     </ion-text>
@@ -58,14 +58,19 @@
   </ion-item>
   <ion-item>
     <ion-label>From</ion-label>
-    <ion-datetime display-format="MMM DD, YYYY HH:mm" formControlName="start-date"></ion-datetime>
+    <ion-datetime display-format="MMM DD, YYYY HH:mm" formControlName="startDate"></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-label>To</ion-label>
-    <ion-datetime display-format="MMM DD, YYYY HH:mm" formControlName="end-date"></ion-datetime>
+    <ion-datetime display-format="MMM DD, YYYY HH:mm" formControlName="endDate"></ion-datetime>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Description</ion-label>
+    <ion-textarea formControlName="description"></ion-textarea>
   </ion-item>
   <ion-button color="success ion-margin-top">Pick Photo</ion-button>
 </form>
 </ion-content>
 
-<ion-button expand="full" color="tertiary">Publish</ion-button>
+<ion-button expand="full" (click)="onPublish()" color="tertiary">Publish</ion-button>
