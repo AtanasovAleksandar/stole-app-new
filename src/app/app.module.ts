@@ -18,6 +18,7 @@ import { SearchFilterPageModule } from './pages/modal/search-filter/search-filte
 
 // Components
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { LoginPageModule } from './pages/login/login.module';
 
 
 
@@ -30,6 +31,7 @@ import { NotificationsComponent } from './components/notifications/notifications
     AppRoutingModule,
     HttpClientModule,
     ImagePageModule,
+    LoginPageModule,
     FormsModule,
     SearchFilterPageModule
   ],
